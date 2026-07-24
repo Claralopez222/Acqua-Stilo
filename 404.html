@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Design-ui pages are single compositions, so the whole body is editable.
+    function markEditable() {
+        document.body.classList.add('artifact-editable');
+    }
+
+    // Credit badge with idle-fade. Hover devices only.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+
+    function init() {
+        markEditable();
+        initChromeUI();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2548d8">
+<meta name="robots" content="noindex">
+<title>404 | Acqua Stilo</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ffe34f'/%3E%3Cpath d='M38 8c-12 3-17 13-13 23 2 5 1 9-4 15-4 6-2 11 3 14 7 4 16-1 15-9-1-5-7-7-8-12-1-5 5-9 10-12 6-4 7-11 4-17-2-3-4-2-7-2Z' fill='%232548d8' stroke='%231b285b' stroke-width='3'/%3E%3Ccircle cx='41' cy='15' r='3' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1b285b;--blue:#2548d8;--cyan:#72d8e9;--ice:#f3fbfc;--yellow:#ffe34f;--orange:#f36e2d;--white:#fffefb;--ink:#253052;--muted:#53627d}
+*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{overflow:hidden;background:var(--blue);color:var(--white);font:16px/1.55 Nunito,system-ui,sans-serif}.page{min-height:100svh;display:grid;place-items:center;position:relative;padding:28px;isolation:isolate}.page:before,.page:after{content:"";position:absolute;border-radius:50%;z-index:-1}.page:before{width:clamp(360px,52vw,720px);height:clamp(360px,52vw,720px);right:-16%;top:-32%;background:rgba(114,216,233,.2)}.page:after{width:clamp(260px,34vw,480px);height:clamp(260px,34vw,480px);left:-14%;bottom:-24%;background:rgba(27,40,91,.28)}.content{width:min(760px,100%);text-align:center}.brand{display:inline-flex;align-items:center;gap:10px;color:var(--white);font:800 1.25rem "Baloo 2",sans-serif}.brand-mark{width:44px;height:44px}.error-code{margin:30px 0 0;color:var(--yellow);font:800 clamp(7rem,23vw,15rem)/.8 "Baloo 2",sans-serif;letter-spacing:-.08em;text-shadow:10px 12px 0 rgba(27,40,91,.25)}h1{margin:28px 0 14px;font:800 clamp(2.2rem,5vw,4.4rem)/.95 "Baloo 2",sans-serif;letter-spacing:-.04em}p{max-width:550px;margin:0 auto;color:#eaf8fb;font-size:1.08rem}.wave{height:50px;margin:34px auto 0;max-width:500px;overflow:hidden;position:relative}.wave:before,.wave:after{content:"";position:absolute;left:-10%;width:120%;height:60px;border-radius:50%;border-top:5px solid var(--cyan);transform:rotate(-3deg)}.wave:after{top:16px;border-top-color:rgba(255,227,79,.85);transform:rotate(2deg)}.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border:2px solid transparent;border-radius:999px;font-weight:900;text-decoration:none;transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s ease}.btn-primary{background:var(--yellow);color:var(--navy)}.btn-ghost{border-color:rgba(255,255,255,.65);color:var(--white)}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(27,40,91,.2)}.contact{margin-top:26px;font-size:.9rem}.contact a{color:var(--yellow);font-weight:800}.contact a:hover{text-decoration:underline}@media(max-width:520px){.page{padding:22px}.error-code{margin-top:42px}.actions .btn{width:100%}}
+@media(prefers-reduced-motion:no-preference){.content{animation:rise .8s cubic-bezier(.16,1,.3,1) both}.error-code{animation:float 5s ease-in-out .25s infinite}}@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+</style>
+</head>
+<body>
+<main class="page" aria-labelledby="error-title">
+<div class="content">
+<a class="brand" href="index.html" aria-label="Voltar para a Acqua Stilo">
+<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#ffe34f"/><path d="M38 8c-12 3-17 13-13 23 2 5 1 9-4 15-4 6-2 11 3 14 7 4 16-1 15-9-1-5-7-7-8-12-1-5 5-9 10-12 6-4 7-11 4-17-2-3-4-2-7-2Z" fill="#2548d8" stroke="#1b285b" stroke-width="3"/></svg>
+<span>Acqua Stilo</span>
+</a>
+<div class="error-code" aria-hidden="true">404</div>
+<h1 id="error-title">Ops, esse mergulho não existe.</h1>
+<p>A página que você procurou pode ter mudado de lugar ou não está mais disponível. Volte para a piscina principal e continue navegando.</p>
+<div class="wave" aria-hidden="true"></div>
+<div class="actions"><a class="btn btn-primary" href="index.html">Voltar para o início</a><a class="btn btn-ghost" href="mailto:acquastilonatacao@gmail.com">Falar com a equipe</a></div>
+<div class="contact">Empresa: <a href="tel:+5565993330159">(65) 99333-0159</a> · <a href="mailto:acquastilonatacao@gmail.com">acquastilonatacao@gmail.com</a></div>
+</div>
+</main>
+</body>
+</html>
